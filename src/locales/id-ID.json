@@ -1,0 +1,20 @@
+{
+    "settings": "Pengaturan",
+    "general": "Umum",
+    "securityAndPrivacy": "Keamanan & Privasi",
+    "notifications": "Notifikasi",
+    "languageAndRegion": "Bahasa & Wilayah",
+    "displays": "Tampilan",
+    "advanced": "Lanjutan",
+    "language": "Bahasa",
+    "closeAppBehavior": "Perilaku Menutup Aplikasi",
+    "minimizeToTray": "Minimalkan ke Baki",
+    "exitApp": "Keluar dari Aplikasi",
+    "thai": "Thai",
+    "english": "English",
+    "japanese": "Japanese",
+    "indonesia": "Indonesia",
+    "russian": "Russian",
+    "chinese": "Chinese",
+    "opensource": "Lisensi Sumber Terbuka"
+  }

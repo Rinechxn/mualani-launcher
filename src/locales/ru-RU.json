@@ -1,0 +1,20 @@
+{
+    "settings": "Настройки",
+    "general": "Общие",
+    "securityAndPrivacy": "Безопасность и конфиденциальность",
+    "notifications": "Уведомления",
+    "languageAndRegion": "Язык и регион",
+    "displays": "Дисплеи",
+    "advanced": "Расширенные",
+    "language": "Язык",
+    "closeAppBehavior": "Поведение при закрытии приложения",
+    "minimizeToTray": "Свернуть в трей",
+    "exitApp": "Выйти из приложения",
+    "thai": "Тайский",
+    "english": "Английский",
+    "japanese": "Японский",
+    "indonesia": "Индонезийский",
+    "russian": "Русский",
+    "chinese": "Китайский",
+    "opensource": "Лицензии открытого исходного кода"
+  }
