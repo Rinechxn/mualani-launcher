@@ -19,6 +19,7 @@
     "build:snap": "electron-builder --snap"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "axios": "^1.7.5",
     "cors": "^2.8.5",
     "electron": "^32.0.1",

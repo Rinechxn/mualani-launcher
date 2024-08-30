@@ -19,5 +19,10 @@
   "opensource": "Лицензии открытого исходного кода",
   "findGameLocation": "Найти местоположение игры",
   "gameInstalled": "Игра установлена",
-  "downloadGame": "Скачать игру"
+  "downloadGame": "Скачать игру",
+  "activity": "Активность",
+  "announce": "Объявление",
+  "info": "Информация",
+  "about": "О нас",
+  "filemanagement": "Управление файлами"
 }

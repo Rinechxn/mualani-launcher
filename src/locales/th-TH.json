@@ -19,5 +19,10 @@
   "opensource": "ลิขสิทธิ์โอเพ่นซอร์ส",
   "findGameLocation": "ค้นหาตำแหน่งเกม",
   "gameInstalled": "ติดตั้งแล้ว?",
-  "downloadGame": "ดาวน์โหลดเกม"
+  "downloadGame": "ดาวน์โหลดเกม",
+  "activity": "กิจกรรม",
+  "announce": "ประกาศ",
+  "info": "ข้อมูล",
+  "about": "เกี่ยวกับ",
+  "filemanagement": "การจัดการไฟล์"
 }

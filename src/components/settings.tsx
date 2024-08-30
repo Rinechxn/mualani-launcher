@@ -4,6 +4,8 @@ import { CloseIcon } from "./icon";
 import { motion } from "framer-motion";
 import SettingsPage from "./layouts/settings/page";
 import { useTranslation } from "react-i18next";
+import { FolderIcon, BellIcon, GlobeAltIcon, EyeIcon, Cog6ToothIcon, ArchiveBoxIcon, InformationCircleIcon, UserIcon } from "@heroicons/react/24/outline";
+
 
 interface SettingPageProps {
     closeSettings: () => void;
@@ -24,12 +26,14 @@ function SettingPage({ closeSettings }: SettingPageProps) {
     const { t } = useTranslation();
 
     const settingsOptions = [
-        { id: 'general', label: t('general') },
-        { id: 'notifications', label: t('notifications') },
-        { id: 'language', label: t('language') },
-        { id: 'appearance', label: t('displays') },
-        { id: 'advanced', label: t('advanced') },
-        { id: 'opensource', label: t('opensource') },
+        { id: 'general', label: t('general'), icon: <UserIcon /> },
+        { id: 'notifications', label: t('notifications'), icon: <BellIcon /> },
+        { id: 'language', label: t('language'), icon: <GlobeAltIcon /> },
+        { id: 'appearance', label: t('displays'), icon: <EyeIcon /> },
+        { id: 'filemanager', label: t('filemanagement'), icon: <FolderIcon /> },
+        { id: 'advanced', label: t('advanced'), icon: <Cog6ToothIcon /> },
+        { id: 'opensource', label: t('opensource'), icon: <ArchiveBoxIcon /> },
+        { id: 'about', label: t('about'), icon: <InformationCircleIcon /> },
     ];
 
     return (
@@ -54,14 +58,16 @@ function SettingPage({ closeSettings }: SettingPageProps) {
                         {settingsOptions.map((option) => (
                             <button
                                 key={option.id}
-                                className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors duration-150 ${
-                                    activePage === option.id
-                                        ? 'bg-[#ffffff] text-black'
-                                        : 'hover:bg-[#d8d8d8] dark:hover:bg-[#3a3a3a]'
-                                }`}
+                                className={`w-full flex items-center gap-2 text-left px-3 py-2 rounded-md text-sm transition-colors duration-150 ${activePage === option.id
+                                    ? 'bg-[#ffffff] text-black'
+                                    : 'hover:bg-[#d8d8d8] dark:hover:bg-[#3a3a3a]'
+                                    }`}
                                 onClick={() => setActivePage(option.id)}
                             >
-                                {option.label}
+                                <div className="w-5 h-5">
+                                    {option.icon}
+                                </div>
+                                <p> {option.label}</p>
                             </button>
                         ))}
                     </div>

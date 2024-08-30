@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 // Assuming HoYoNewsGenshin is a function that returns the API URL
 // If it's not, you'll need to replace it with the actual API URL
@@ -31,11 +32,7 @@ interface ApiResponse {
     };
 }
 
-const typeMapping: { [key: string]: string } = {
-    POST_TYPE_ACTIVITY: "Activity",
-    POST_TYPE_ANNOUNCE: "Announce",
-    POST_TYPE_INFO: "Info"
-};
+
 
 function GenshinLayout() {
     const [banners, setBanners] = useState<Banner[]>([]);
@@ -45,7 +42,13 @@ function GenshinLayout() {
     const [data, setData] = useState<ApiResponse | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-
+    const { t } = useTranslation();
+    const typeMapping: { [key: string]: string } = {
+        POST_TYPE_ACTIVITY: t('activity'),
+        POST_TYPE_ANNOUNCE: t('announce'),
+        POST_TYPE_INFO: t('info')
+    };
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -108,7 +111,7 @@ function GenshinLayout() {
     const currentBanner = banners[currentBannerIndex];
 
     return (
-        <div className="fixed bottom-16 left-32 w-[360px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-lg" style={{ height: '320px' }}>
+        <div className="fixed bottom-16 left-32 w-[400px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-lg" style={{ height: '320px' }}>
             <AnimatePresence mode="wait">
                 <motion.div
                     key={currentBannerIndex}

@@ -19,5 +19,10 @@
   "opensource": "Lisensi Sumber Terbuka",
   "findGameLocation": "Cari Lokasi Game",
   "gameInstalled": "Game Terinstal",
-  "downloadGame": "Unduh Game"
+  "downloadGame": "Unduh Game",
+  "activity": "Aktivitas",
+  "announce": "Pengumuman",
+  "info": "Informasi",
+  "about": "Tentang",
+  "filemanagement": "Manajemen File"
 }

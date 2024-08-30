@@ -19,5 +19,10 @@
   "opensource": "オープンソースライセンス",
   "findGameLocation": "ゲームの場所を見つける",
   "gameInstalled": "ゲームがインストールされています",
-  "downloadGame": "ゲームをダウンロード"
+  "downloadGame": "ゲームをダウンロード",
+  "activity": "アクティビティ",
+  "announce": "お知らせ",
+  "info": "情報",
+  "about": "私たちについて",
+  "filemanagement": "ファイル管理"
 }

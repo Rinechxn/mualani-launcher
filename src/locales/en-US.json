@@ -19,5 +19,10 @@
   "opensource": "Open Source Licenses",
   "findGameLocation": "Find Game Location",
   "gameInstalled": "Game Installed",
-  "downloadGame": "Download Game"
+  "downloadGame": "Download Game",
+  "activity": "Activity",
+  "announce": "Announce",
+  "info": "Info",
+  "about": "About",
+  "filemanagement": "File Management"
 }

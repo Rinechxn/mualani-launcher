@@ -4,6 +4,7 @@ import { getGlobalLanguage } from '../utils/languageUtils';
 const BASE_URL = "/api/getGameContent";
 const BANNER_URL = "/api/getGames";
 const BASICINFO_URL = "/api/getAllGameBasicInfo";
+const GAME_RESOURCES_URL = "/api/getGamePackages";
 const LAUNCHER_ID = "VYTpXlbWo8";
 const GAME_ID = "gopR6Cufr3";
 
@@ -21,7 +22,10 @@ export const resBasicInfo = (): string => {
     const language = getGlobalLanguage();
     return `${BASICINFO_URL}?launcher_id=${LAUNCHER_ID}&language=${language}&game_id=${GAME_ID}`;
 };
-console.log(resBasicInfo());
+
+export const resGameResources = (): string => {
+    return `${GAME_RESOURCES_URL}?launcher_id=${LAUNCHER_ID}`;
+};
 
 export const getAllGameBasicInfo = (): string => {
     return resBasicInfo();
