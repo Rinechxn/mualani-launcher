@@ -16,8 +16,11 @@ MualaniLauncher is a cross-platform game launcher application built using Vite, 
 - CMake (version 3.16 or higher)
 - Qt6
 - QCefView
+- Electron (for Electron version)
 
 ## Building the Project
+
+### Qt Version
 
 1. Clone the repository:
    ```
@@ -57,6 +60,36 @@ MualaniLauncher is a cross-platform game launcher application built using Vite, 
 
 8. The executable will be located in the `bin` directory, and the built frontend will be in the `dist` directory.
 
+### Electron Version
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/AniGameLauncher.git
+   cd AniGameLauncher
+   ```
+
+2. Install Node.js dependencies using pnpm:
+   ```
+   pnpm install
+   ```
+
+3. Build the Vite + React frontend:
+   ```
+   pnpm run build
+   ```
+
+4. Run the Electron app in development mode:
+   ```
+   pnpm run electron:dev
+   ```
+
+5. To build the Electron app for production:
+   ```
+   pnpm run electron:build
+   ```
+
+6. The built Electron app will be located in the `dist_electron` directory.
+
 ## Project Structure
 
 - `src/`: Contains the source code
@@ -77,6 +110,7 @@ MualaniLauncher is a cross-platform game launcher application built using Vite, 
 - React
 - Qt6 (Core, Gui, Widgets)
 - QCefView
+- Electron (for Electron version)
 
 ## License
 
