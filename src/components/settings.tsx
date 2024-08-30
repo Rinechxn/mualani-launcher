@@ -47,7 +47,7 @@ function SettingPage({ closeSettings }: SettingPageProps) {
                 exit="hidden"
                 variants={settingDialogVariants}
                 transition={{ duration: 0.25, ease: "easeInOut" }}
-                className="bg-[#f5f5f7] dark:bg-[#1e1e1e] w-[800px] h-[500px] rounded-xl shadow-lg flex overflow-hidden"
+                className="bg-[#f5f5f7] dark:bg-[#1e1e1e] w-[800px] h-[500px] rounded-xl shadow-lg flex overflow-hidden border border-[#3b3b3b]"
             >
                 <div className="h-full w-[200px] bg-[#e8e8ed] dark:bg-[#2a2a2a] p-4">
                     <div className="flex flex-col gap-1 items-start">

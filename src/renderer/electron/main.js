@@ -33,14 +33,22 @@ function createWindow() {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-app.whenReady().then(function () {
+app.whenReady().then(() => {
     createWindow();
+
     app.on('activate', function () {
-        if (BrowserWindow.getAllWindows().length === 0) {
-            createWindow();
-        }
+        if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    });
+
+    ipcMain.handle('open-folder-dialog', async () => {
+        const { dialog } = require('electron');
+        const result = await dialog.showOpenDialog({
+            properties: ['openDirectory']
+        });
+        return result;
     });
 });
+
 
 // Quit when all windows are closed, except on macOS
 app.on('window-all-closed', function () {
@@ -54,3 +62,11 @@ app.on('activate', () => {
         createWindow();
     }
 });
+
+// app.whenReady().then(() => {
+//     ipcRenderer.invoke('open-folder-dialog').then((result) => {
+//         console.log(result);
+//     }).catch((err) => {
+//         console.error(err);
+//     });
+// });

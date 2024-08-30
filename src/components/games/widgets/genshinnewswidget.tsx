@@ -22,6 +22,15 @@ interface NewsPost {
     date: string;
 }
 
+interface ApiResponse {
+    data: {
+        content: {
+            banners: Banner[];
+            posts: NewsPost[];
+        };
+    };
+}
+
 const typeMapping: { [key: string]: string } = {
     POST_TYPE_ACTIVITY: "Activity",
     POST_TYPE_ANNOUNCE: "Announce",
@@ -33,18 +42,24 @@ function GenshinLayout() {
     const [posts, setPosts] = useState<NewsPost[]>([]);
     const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
     const [selectedType, setSelectedType] = useState<string | null>(null);
-    const [data, setData] = useState(null)
+    const [data, setData] = useState<ApiResponse | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setIsLoading(true);
                 // Use a proxy server to bypass CORS
                 const targetUrl = HoYoNewsGenshin();
-                const response = await axios.get(targetUrl);
+                const response = await axios.get<ApiResponse>(targetUrl);
                 setData(response.data);
-                console.log(response.data);
+                setError(null);
             } catch (error) {
                 console.error('Error fetching data:', error);
+                setError('Failed to fetch data. Please try again later.');
+            } finally {
+                setIsLoading(false);
             }
         };
         fetchData();
@@ -78,8 +93,16 @@ function GenshinLayout() {
         window.open(url, '_blank');
     };
 
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
+
     if (banners.length === 0) {
-        return null;
+        return <div>No banners available.</div>;
     }
 
     const currentBanner = banners[currentBannerIndex];

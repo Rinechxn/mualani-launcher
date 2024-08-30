@@ -1,19 +1,21 @@
-import { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { setGlobalLanguage, getGlobalLanguage } from '../../../utils/languageUtils';
 
 function General() {
-    const { t, i18n } = useTranslation();
-    const [language, setLanguage] = useState(i18n.language);
+    const { t } = useTranslation();
+    const [language, setLanguage] = useState(getGlobalLanguage());
     const [closeAppBehavior, setCloseAppBehavior] = useState('minimize');
 
     useEffect(() => {
-        setLanguage(i18n.language);
-    }, [i18n.language]);
+        setLanguage(getGlobalLanguage());
+    }, []);
 
     const changeLanguage = (newLanguage: string) => {
-        i18n.changeLanguage(newLanguage);
+        setGlobalLanguage(newLanguage);
+        setLanguage(newLanguage);
     };
-
+    
     return (
         <div className="w-full h-full flex flex-col p-6 space-y-6 text-gray-200">
             <div>
@@ -29,8 +31,7 @@ function General() {
                     <option className='text-sm' value="ja-JP">{t('japanese')}</option>
                     <option className='text-sm' value="id-ID">{t('indonesia')}</option>
                     <option className='text-sm' value="ru-RU">{t('russian')}</option>
-                    <option className='text-sm' value="cn-ZH">{t('chinese')}</option>
-                    
+                    <option className='text-sm' value="zh-CN">{t('chinese')}</option>
                 </select>
             </div>
 
