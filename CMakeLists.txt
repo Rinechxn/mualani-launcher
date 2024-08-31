@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 # Set the project name and version
-project(ANIGAMELAUNCHER VERSION 1.0)
+project(MUALANI VERSION 1.0)
 
 # Specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -13,33 +13,50 @@ set(CMAKE_PREFIX_PATH "$ENV{QTDIR}")
 # Find Qt6 packages
 find_package(Qt6 COMPONENTS Core Gui Widgets REQUIRED)
 
-# Add QCefView
-add_subdirectory(./external/QCefView)
+# Define the path to CEF
+set(CEF_ROOT "${CMAKE_SOURCE_DIR}/external/CEF")
+
+# Add your source files
+set(SOURCES
+    src/renderer/chromium/main.cpp
+    src/renderer/chromium/mainwindow.cpp
+    src/renderer/chromium/mainwindow.hpp
+    src/renderer/chromium/simplehandler.hpp
+)
+
+# Add the CEF-related files
+set(CEF_SOURCES
+    ${CEF_ROOT}/libcef_dll/wrapper/libcef_dll_wrapper.cc
+)
 
 # Add executable
 add_executable(${PROJECT_NAME} 
-    src/renderer/chromium/main.cpp
-    src/renderer/chromium/mainwindow.cpp
+    ${SOURCES}
+    ${CEF_SOURCES}
 )
 
 # Include directories
-include_directories(
+target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/src
     "$ENV{QTDIR}/include"
-    ${CMAKE_SOURCE_DIR}/external/QCefView/include
+    ${CEF_ROOT}
+    ${CEF_ROOT}/include
+    ${CEF_ROOT}/libcef_dll/wrapper
 )
 
 # Link directories
-link_directories(
+target_link_directories(${PROJECT_NAME} PRIVATE
     "$ENV{QTDIR}/lib"
-    ${CMAKE_SOURCE_DIR}/external/QCefView/lib
+    ${CEF_ROOT}/Release
 )
 
+# Link libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Core
     Qt6::Gui
     Qt6::Widgets
-    QCefView
+    libcef
+    libcef_dll_wrapper
 )
 
 # Set output directory for the executable
@@ -61,3 +78,11 @@ if(WIN32)
     install(FILES ${QT_DLLS} DESTINATION bin)
     set(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} ${QT_DLLS})
 endif()
+
+# Copy CEF resources and libraries
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    "${CEF_ROOT}/Resources" $<TARGET_FILE_DIR:${PROJECT_NAME}>
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    "${CEF_ROOT}/Release" $<TARGET_FILE_DIR:${PROJECT_NAME}>
+)

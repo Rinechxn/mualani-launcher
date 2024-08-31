@@ -1,9 +1,6 @@
-const { contextBridge, shell, ipcRenderer } = require('electron');
+const { contextBridge,ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electron', {
-  shell: {
-    openExternal: (url) => shell.openExternal(url)
-  },
   ipcRenderer: {
     send: (channel, data) => {
       let validChannels = ['minimize-window', 'close-window'];

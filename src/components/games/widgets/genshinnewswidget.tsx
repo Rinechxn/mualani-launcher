@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
@@ -91,10 +91,10 @@ function GenshinLayout() {
         return posts.filter(post => post.type === selectedType);
     }, [posts, selectedType]);
 
-    const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, url: string) => {
-        event.preventDefault();
-        window.open(url, '_blank');
-    };
+    // const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, url: string) => {
+    //     event.preventDefault();
+    //     window.open(url, '_blank');
+    // };
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -121,7 +121,7 @@ function GenshinLayout() {
                     transition={{ duration: 0.5 }}
                     className="w-full h-[180px]"
                 >
-                    <a href={currentBanner.image.link} onClick={(e) => handleLinkClick(e, currentBanner.image.link)}>
+                    <a href={currentBanner.image.link} target="_blank">
                         <img
                             src={currentBanner.image.url || '/default-image.jpg'}
                             alt={`Banner ${currentBanner.id}`}
@@ -135,7 +135,7 @@ function GenshinLayout() {
                     {uniqueTypes.map(type => (
                         <button
                             key={type}
-                            className={`${selectedType === type ? 'text-white font-bold border-b-2 border-blue-500' : 'text-gray-400'} pb-1 transition-all duration-200 ease-in-out`}
+                            className={`${selectedType === type ? 'text-white font-bold' : 'text-gray-400'} pb-1 transition-all duration-200 ease-in-out hover:text-white`}
                             onClick={() => setSelectedType(type)}
                         >
                             {typeMapping[type] || type}
@@ -148,7 +148,7 @@ function GenshinLayout() {
                             key={post.id}
                             href={post.link}
                             className="block text-sm text-white hover:text-blue-300 transition-colors duration-200"
-                            onClick={(e) => handleLinkClick(e, post.link)}
+                            target="_blank"
                         >
                             <div className="truncate font-medium">{post.title}</div>
                             <div className="text-xs text-gray-400 mt-1">{post.date}</div>

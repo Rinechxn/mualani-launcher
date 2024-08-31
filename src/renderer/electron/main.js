@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, shell } from 'electron';
 import path from 'path';
 
 function createWindow() {
@@ -29,16 +29,16 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:5173'); // URL for Next.js development server
     // Open the DevTools.
     // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.setWindowOpenHandler((details) => {
+        shell.openExternal(details.url); // Open URL in user's browser.
+        return { action: "deny" }; // Prevent the app from opening the URL.
+    })
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.whenReady().then(() => {
     createWindow();
-
-    app.on('activate', function () {
-        if (BrowserWindow.getAllWindows().length === 0) createWindow();
-    });
 
     ipcMain.handle('open-folder-dialog', async () => {
         const { dialog } = require('electron');
@@ -63,10 +63,3 @@ app.on('activate', () => {
     }
 });
 
-// app.whenReady().then(() => {
-//     ipcRenderer.invoke('open-folder-dialog').then((result) => {
-//         console.log(result);
-//     }).catch((err) => {
-//         console.error(err);
-//     });
-// });

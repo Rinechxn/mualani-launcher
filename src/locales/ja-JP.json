@@ -18,11 +18,12 @@
   "chinese": "中文",
   "opensource": "オープンソースライセンス",
   "findGameLocation": "ゲームの場所を見つける",
-  "gameInstalled": "ゲームがインストールされています",
+  "gameInstalled": "ゲームがインストールされています?",
   "downloadGame": "ゲームをダウンロード",
   "activity": "アクティビティ",
   "announce": "お知らせ",
   "info": "情報",
   "about": "私たちについて",
-  "filemanagement": "ファイル管理"
+  "filemanagement": "ファイル管理",
+  "viewGameResources": "ゲームリソースを表示"
 }

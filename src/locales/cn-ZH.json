@@ -18,11 +18,12 @@
   "chinese": "中文",
   "opensource": "开源许可",
   "findGameLocation": "查找游戏位置",
-  "gameInstalled": "游戏已安装",
+  "gameInstalled": "游戏已安装?",
   "downloadGame": "下载游戏",
   "activity": "活动",
   "announce": "公告",
   "info": "信息",
   "about": "关于",
-  "filemanagement": "文件管理"
+  "filemanagement": "文件管理",
+  "viewGameResources": "查看游戏资源"
 }

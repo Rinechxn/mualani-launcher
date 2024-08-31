@@ -1,5 +1,5 @@
 // components/web/titlebar.tsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { GearIcon } from "./icon";
 import { motion } from "framer-motion";
 
@@ -8,10 +8,21 @@ interface TitlebarProps {
 }
 
 function Titlebar({ toggleSettings }: TitlebarProps) {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+  
   return (
     <>
       <div className="w-screen h-12 fixed flex items-center justify-between px-4 z-[999]" style={{ WebkitAppRegion: 'drag' } as React.CSSProperties}>
-        <div></div>
+        <div className="pl-16">
+          <p className="text-sm font-semibold">{time.toLocaleTimeString()}</p>
+        </div>
         <div className="flex space-x-4 pr-14" style={{ WebkitAppRegion: 'no-drag' } as React.CSSProperties}>
           <motion.button
             onClick={toggleSettings}

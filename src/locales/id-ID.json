@@ -18,11 +18,12 @@
   "chinese": "中文",
   "opensource": "Lisensi Sumber Terbuka",
   "findGameLocation": "Cari Lokasi Game",
-  "gameInstalled": "Game Terinstal",
+  "gameInstalled": "Game Terinstal?",
   "downloadGame": "Unduh Game",
   "activity": "Aktivitas",
   "announce": "Pengumuman",
   "info": "Informasi",
   "about": "Tentang",
-  "filemanagement": "Manajemen File"
+  "filemanagement": "Manajemen File",
+  "viewGameResources": "Lihat Sumber Daya Game"
 }

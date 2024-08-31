@@ -1,14 +1,22 @@
+// mainwindow.hpp
 #ifndef MAINWINDOW_HPP
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
+#include "simplehandler.hpp"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
+
+    void CreateBrowser();
+
+private:
+    CefRefPtr<SimpleHandler> handler_;
 };
 
-#endif
+#endif // MAINWINDOW_HPP

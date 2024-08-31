@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FolderIcon } from '@heroicons/react/16/solid';
 
 declare global {
     interface Window {
@@ -106,6 +107,12 @@ const ControlOverlay: React.FC = () => {
                         </button>
                     </div>
                 )}
+                <div>
+                    <button className='cursor-pointer text-yellow-300 hover:text-white text-sm flex items-center space-x-2'>
+                        <FolderIcon className='size-4' />
+                        <p>{t('viewGameResources')}</p>
+                    </button>
+                </div>
             </div>
 
         </div>

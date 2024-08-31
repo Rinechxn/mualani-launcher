@@ -17,8 +17,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
+ 
 }
-
+/* * {
+  outline: none;
+} */
 /* Customize website's scrollbar like Mac OS
 Not supports in Firefox and IE */
 
@@ -49,3 +52,16 @@ Not supports in Firefox and IE */
 
 /* set button(top and bottom of the scrollbar) */
 ::-webkit-scrollbar-button {display:none}
+
+/* .animate-background-fade {
+  animation: background-fade 1s ease-in-out;
+}
+
+@keyframes background-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} */
