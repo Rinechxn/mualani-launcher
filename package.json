@@ -6,21 +6,18 @@
   "main": "src/renderer/electron/main.js",
   "scripts": {
     "dev": "vite",
-    "dev:electron": "electron .",
+    "dev:electron": "concurrently \"vite\" \"electron .\"",
     "dev:server": "ts-node server/app.ts",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "build:electron": "electron-builder --dir",
-    "build:win": "electron-builder --windows",
-    "build:mac": "electron-builder --mac",
-    "build:dmg": "electron-builder --dmg",
-    "build:appimage": "electron-builder --appimage",
-    "build:snap": "electron-builder --snap"
+    "build:win": "electron-builder --windows"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "axios": "^1.7.5",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "electron": "^32.0.1",
     "electron-builder": "^24.13.3",

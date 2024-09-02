@@ -95,9 +95,10 @@ MualaniLauncher is a cross-platform game launcher application built using Vite, 
 - `src/`: Contains the source code
   - `renderer/`: Renderer-related code
     - `chromium/`: Chromium-specific code
-  - `frontend/`: React frontend code
+    - `electron/`: Electron-specific code
+  - `app/`: React frontend code
 - `external/`: External dependencies
-  - `QCefView/`: QCefView library
+  - `CEF/`: CEF library
 - `CMakeLists.txt`: Main CMake configuration file
 - `package.json`: Node.js project configuration
 - `vite.config.js`: Vite configuration file
@@ -109,17 +110,17 @@ MualaniLauncher is a cross-platform game launcher application built using Vite, 
 - Vite
 - React
 - Qt6 (Core, Gui, Widgets)
-- QCefView
+- CEF Chromium
 - Electron (for Electron version)
 
 ## License
 
-[Insert your chosen license here]
+This project is licensed under the MIT License.
 
 ## Contributing
 
-[Insert contribution guidelines here]
+Contributions are welcome! Please feel free to submit a PR.
 
-## Contact
+<!-- ## Contact
 
-[Insert your contact information or project links here]
+[Insert your contact information or project links here] -->

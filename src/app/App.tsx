@@ -6,6 +6,7 @@ import SettingPage from '../components/settings';
 // import GameLayout from '../components/games/layout';
 import GenshinLayout from '../components/games/genshin';
 import { initializeLanguage } from '../utils/languageUtils';
+import GameResource from '../components/layouts/dialog/gameresource';
 
 function App() {
   const [showSettings, setShowSettings] = useState(false);
@@ -22,8 +23,10 @@ function App() {
       {showSettings && <SettingPage closeSettings={() => setShowSettings(false)} />}
       <div className="main-content">
         <SideBar />
+        {/* <GameResource /> */}
         {/* <Outlet /> */}
         <GenshinLayout />
+
       </div>
     </div>
   );
